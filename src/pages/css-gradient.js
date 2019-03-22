@@ -2,9 +2,6 @@ import React, { Component } from "react"
 import { Container, Row, Col } from "reactstrap"
 import styled from "styled-components"
 
-import { TimelineMax } from "gsap/all"
-import "js/DrawSVGPlugin"
-
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -54,6 +51,10 @@ const LandingVideoBg = styled.div`
     width: 100%;
     height: 100%;
 
+    animation: AnimationName 4s ease infinite;
+    background: linear-gradient(273deg, #d7ff00, #dc00ff, #00ffeb, #02ff00, #1100ff, #ffffff, #ff0000);
+    background-size: 1200% 1200%;
+
     video {
         position: absolute;
         top: 50%;
@@ -64,38 +65,55 @@ const LandingVideoBg = styled.div`
         height: auto;
         transform: translateX(-50%) translateY(-50%);
     }
+
+
+    /* .gradient-animation {
+
+        width: 100vw;
+        height: 100vh;
+        
+        opacity: .4;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    } */
+
+    @keyframes AnimationName { 
+        0%{background-position:0% 63%}
+        50%{background-position:100% 38%}
+        100%{background-position:0% 63%}
+    }
 `
 
+class Page2 extends Component {
 
+	constructor(props) {
+		super(props)
+	}
 
-class IndexPage extends Component {
-
-    constructor(props) {
-        super(props)
-    }
-    
 	render() {
 
-        // workout what video depending on browser width
-        const videoSrc = typeof window !== 'undefined' && window.innerWidth > 768 ? videoDesktop : videoMobile
+		// workout what video depending on browser width
+		const videoSrc = typeof window !== 'undefined' && window.innerWidth > 768 ? videoDesktop : videoMobile
 
 		return (
 			<Layout>
 				<SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
 
-                <LandingContainer fluid>
-                    <LandingRow>
-                        <LandingFillerCol />
-                        <LandingLogoCol md="auto">
-                            <picture>
-                                <source srcSet={dewyntersSVG} media="(min-width: 768px)" />
-                                <img src={dewyntersStackedSVG} alt="Dewynters" ref={logo => this.logo = logo} />
-                            </picture>
-                        </LandingLogoCol>
-                        <LandingFillerCol />
-                    </LandingRow>
-                    <LandingVideoBg>
-                        <video
+				<LandingContainer fluid>
+					<LandingRow>
+						<LandingFillerCol />
+						<LandingLogoCol md="auto">
+							<picture>
+								<source srcSet={dewyntersSVG} media="(min-width: 768px)" />
+								<img src={dewyntersStackedSVG} alt="Dewynters" />
+							</picture>
+						</LandingLogoCol>
+						<LandingFillerCol />
+					</LandingRow>
+					<LandingVideoBg>
+						{/* <video
                             id="video"
                             muted
                             autoPlay
@@ -104,9 +122,9 @@ class IndexPage extends Component {
                             preload="true"
                         >
                             <source src={videoSrc} type="video/mp4" />
-                        </video>
-                    </LandingVideoBg>
-                </LandingContainer>
+                        </video> */}
+					</LandingVideoBg>
+				</LandingContainer>
 
 			</Layout>
 		)
@@ -114,6 +132,4 @@ class IndexPage extends Component {
 
 }
 
-export default IndexPage
-
-
+export default Page2
