@@ -1,61 +1,69 @@
 import React, { Component } from "react"
-
+import { Container, Row, Col } from "reactstrap"
 import styled from "styled-components"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-import video from "video/dewynters-video-20sec-edit.mp4"
-import dewyntersSVG from "../images/dw-logo-black.svg"
-import dewyntersStackedSVG from "../images/dw-logo-stacked.svg"
+import videoDesktop from "video/video-desktop.mp4"
+import videoMobile from "video/video-mobile.mp4"
+import dewyntersSVG from "../images/desktop-bg.svg"
+import dewyntersStackedSVG from "../images/mobile-bg.svg"
 
-const VideoBgWrapper = styled.div`
+const LandingContainer = styled(Container)`
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+`
+
+const LandingRow = styled(Row)`
+    position: relative;
+    z-index: 1;
+`
+
+const LandingFillerCol = styled(Col)`
+    background-color: black;
+    opacity: .7;
+    display: none;
+
+    @media (min-width: 1600px) {
+        display: block;
+    }
+`
+
+const LandingLogoCol = styled(Col)`
+    width: 100%;
+    max-width: 1600px;
+    padding: 0;
+
+    img {
+        width: 100%;
+    }
+`
+
+const LandingVideoBg = styled.div`
+    display: block;
     position: absolute;
+    z-index: 0;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
-
-    &:after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        background-color: black;
-        opacity: .5;
-    }
 
     video {
         position: absolute;
         top: 50%;
         left: 50%;
-        bottom: 0;
-        right: 0;
-        transform: translate(-50%, -50%);
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        transform: translateX(-50%) translateY(-50%);
     }
 `
 
 
-const Svg = styled.svg`
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-
-    mask rect {
-        fill: rgba(255, 255, 255, 0.75);
-    }
-
-    > rect {
-        fill: #333;
-        -webkit-mask: url(#mask);
-        mask: url(#mask);
-    }
-`
 
 class IndexPage extends Component {
 
@@ -65,76 +73,38 @@ class IndexPage extends Component {
 	}
 
 	render() {
+
+        // workout what video depending on browser width
+        const videoSrc = typeof window !== 'undefined' && window.innerWidth > 768 ? videoDesktop : videoMobile
+
 		return (
 			<Layout>
 				<SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
 
-
-
-            <div id="header">
-                <Svg>
-                    <defs>
-                        <mask id="mask" x="0" y="0" width="100%" height="100%">
-                            <rect x="0" y="0" width="100%" height="100%" />
-                            <image href={dewyntersSVG} x="0" y="0" width="50%" height="100%" style={{
-                                transform: "translateX(25%)",
-                                left: "-25%"
-                            }}></image>
-                        </mask>
-                    </defs>
-                    <rect width="100%" height="100%"/>
-                </Svg>
-                <rect width="100%" height="100%" />
-                <video id="video_target" src={video} autoPlay playsInline muted loop preload></video>
-            </div>
-
-
-                {/* <Wrapper>
-                    <Video autoPlay playsInline muted loop preload>
-                        <source src={video} />
-                    </Video>
-                    <Svg viewBox="0 0 285 80" preserveAspectRatio="xMidYMid slice">
-                        <defs>
-                            <mask id="mask" x="0" y="0" width="100%" height="100%" >
-                                <rect x="0" y="0" width="100%" height="100%" fill="white" />
-                                <text x="72" y="50">Simon</text>
-                            </mask>
-                        </defs>
-                        <rect x="0" y="0" width="100%" height="100%" fill="white" mask="url(#mask)" />
-                    </Svg>
-                </Wrapper>  */}
-
-
-
-                {/* <video
-                    id="video"
-                    muted
-                    autoPlay
-                    playsInline
-                    loop
-                    preload
-                    style={{
-                        display: "none"
-                    }}
-                >
-                    <source src={video} type="video/mp4" />
-                </video> 
-				<canvas ref={canvas => this.canvas = canvas}></canvas> */}
-
-{/* 
-                <VideoBgWrapper>
-                    <video
-                        id="video"
-                        muted
-                        autoPlay
-                        playsInline
-                        loop
-                        preload
-                        // ref={video => this.video = video}
-                    >
-                        <source src={video} type="video/mp4" />
-                    </video> 
-                </VideoBgWrapper> */}
+                <LandingContainer fluid>
+                    <LandingRow>
+                        <LandingFillerCol />
+                        <LandingLogoCol md="auto">
+                            <picture>
+                                <source srcSet={dewyntersSVG} media="(min-width: 768px)" />
+                                <img src={dewyntersStackedSVG} alt="Dewynters" />
+                            </picture>
+                        </LandingLogoCol>
+                        <LandingFillerCol />
+                    </LandingRow>
+                    <LandingVideoBg>
+                        <video
+                            id="video"
+                            muted
+                            autoPlay
+                            playsInline
+                            loop
+                            preload="true"
+                        >
+                            <source src={videoSrc} type="video/mp4" />
+                        </video>
+                    </LandingVideoBg>
+                </LandingContainer>
 
 			</Layout>
 		)
