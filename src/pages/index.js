@@ -2,9 +2,6 @@ import React, { Component } from "react"
 import { Container, Row, Col } from "reactstrap"
 import styled from "styled-components"
 
-import { TimelineMax } from "gsap/all"
-import "js/DrawSVGPlugin"
-
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -65,8 +62,6 @@ const LandingVideoBg = styled.div`
         transform: translateX(-50%) translateY(-50%);
     }
 `
-
-
 
 class IndexPage extends Component {
 
