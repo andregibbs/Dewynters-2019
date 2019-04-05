@@ -22,8 +22,21 @@ module.exports = {
 				path: `${__dirname}/src/images`,
 			},
 		},
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                path: `${__dirname}/src/data/`,
+            },
+        },
 		`gatsby-transformer-sharp`,
+		`gatsby-transformer-json`,
 		`gatsby-plugin-sharp`,
+        {
+			resolve: `gatsby-plugin-canonical-urls`,
+			options: {
+				siteUrl: 'https://www.dewynters.com'
+			},
+		},
 		{
 			resolve: `gatsby-plugin-sitemap`,
 			options: {
