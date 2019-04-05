@@ -105,7 +105,7 @@ const Footer = () => (
                             <FooterNav>
                                 <ul>
                                     <li><Link to="/privacy/">Privacy & Cookies</Link></li>
-                                    <li><Link to="/terms-conditions/">Terms & Conditions</Link></li>
+                                    {/*<li><Link to="/terms-conditions/">Terms & Conditions</Link></li>*/}
                                     <li><Link to="/contact/">Contact</Link></li>
                                     <li><Link to="/careers/">Careers</Link></li>
                                 </ul>
