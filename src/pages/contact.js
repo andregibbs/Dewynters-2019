@@ -102,13 +102,7 @@ const InlineList = styled.ul`
 `
 
 class ContactPage extends Component {
-
-	constructor(props) {
-		super(props)
-	}
-
 	render() {
-
 		return (
 			<Layout>
 				<SEO title="Contact"/>
@@ -119,7 +113,7 @@ class ContactPage extends Component {
                         <Col md={6}>
                             <img src={londonMap} alt="" />
                         </Col>
-                        <MapRowContent md={6} lg={7}>
+                        <MapRowContent md={6} lg={8}>
                             <MapRowContentBg>
                                 <h3>London Office</h3>
                                 <p>Wellington House, 125 Strand, London WC2R 0AP</p>
@@ -139,7 +133,7 @@ class ContactPage extends Component {
                         <Col md={6}>
                             <img src={hamburgMap} alt="" />
                         </Col>
-                        <MapRowContent md={6} lg={7}>
+                        <MapRowContent md={6} lg={8}>
                             <MapRowContentBg>
                                 <h3>Hamburg Office</h3>
                                 <p>Lemon-Tree-Building, Holzdamm 14, 20099 Hamburg</p>
@@ -151,7 +145,7 @@ class ContactPage extends Component {
                                         <a href="mailto:kontakt@dewynters.de">kontakt@dewynters.de</a>
                                     </li>
                                     <li>
-                                        <a href="https://www.dewynters.de" target="_blank" rel="noopener noreferrer">dewynters.de</a>
+                                        <a href="http://www.dewynters.de" target="_blank" rel="noopener noreferrer">dewynters.de</a>
                                     </li>
                                 </InlineList>
                             </MapRowContentBg>
@@ -162,7 +156,7 @@ class ContactPage extends Component {
                         <Col md={6}>
                             <img src={amsterdamMap} alt="" />
                         </Col>
-                        <MapRowContent md={6} lg={7}>
+                        <MapRowContent md={6} lg={8}>
                             <MapRowContentBg>
                                 <h3>Amsterdam Office</h3>
                                 <p>Gedempt Hamerkanaal 247, 1021KP Amsterdam</p>
@@ -242,7 +236,6 @@ class ContactPage extends Component {
 			</Layout>
 		)
 	}
-
 }
 
 export default ContactPage

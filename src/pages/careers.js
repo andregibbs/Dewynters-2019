@@ -108,11 +108,6 @@ const CareersPage = () => (
 ) 
 
 class CareersBlock extends Component {
-
-    constructor(props) {
-        super(props)
-    }
-
     render() {
 
         let careersContent

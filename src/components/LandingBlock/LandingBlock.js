@@ -213,10 +213,6 @@ class LandingBlock extends Component {
         const siteWrap = document.getElementById('site-content-wrap')
         siteWrap.classList.toggle('blur')
         siteWrap.classList.toggle('blur--large')
-
-        if (!this.state.text) {
-            this.updateText()
-        }
     }
 
     updateText() {
@@ -235,16 +231,17 @@ class LandingBlock extends Component {
                     </picture>
                 </LogoContainer>
 
-
-                {this.state.text ? (
+                {/* {this.state.text ? (
                     <ContactLink to="/contact/">
                         Want to talk? Say hello...
                     </ContactLink>
                 ) : (
-                    <ModalButton onClick={this.toggleModal} ref={discover => this.discover = discover}>
-                        Discover more
-                    </ModalButton>
-                )}
+                  
+                )} */}
+
+                <ModalButton onClick={this.toggleModal} ref={discover => this.discover = discover}>
+                    Discover more
+                </ModalButton>
 
                 <Modal isOpen={this.state.modal} toggle={this.toggleModal} centered={true}>
                     <ModalBodyStyled>

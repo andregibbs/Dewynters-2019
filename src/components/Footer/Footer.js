@@ -20,6 +20,7 @@ const FooterContainer = styled.footer`
     letter-spacing: 0.2em;
     max-width: 1366px;
     margin: 0 auto;
+    width: 100%;
 `
 
 const FooterNav = styled.nav`
@@ -77,6 +78,10 @@ const CompanyLink = styled.a`
     @media ${media.sm} {
         padding: 0 0 1rem 0;
     }
+
+    img {
+        width: 100%;
+    }
 `
 
 const Footer = () => (
@@ -93,10 +98,10 @@ const Footer = () => (
                         </LinkItem>
                     </LinkWrap>
                 </Col>
-                <Col xs={12} md={{ size: "auto", order: 2 }}>
+                <Col xs={12} md={{ size: 5, order: 2 }} lg={4} className="py-2 py-md-0">
                     <Row>
                         <Col>
-                            +44 020 7321 0488<br/>
+                            020 7321 0488<br/>
                             Wellington House<br />
                             125 Strand<br />
                             London WC2R 0AP
@@ -116,7 +121,7 @@ const Footer = () => (
                 <Col xs={12} md={{ size: "auto", order: 1 }}>
                     <Row className="align-items-center">
                         <Col>
-                            <CompanyLink href="https://www.dewynters.de" rel="noopener noreferrer">
+                            <CompanyLink href="http://www.dewynters.de" rel="noopener noreferrer">
                                 <img src={dewyntersDE} alt="Dewynters Germany" />
                             </CompanyLink>
                         </Col>

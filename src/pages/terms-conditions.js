@@ -4,10 +4,6 @@ import SEO from "utils/Seo"
 
 class TermsPage extends Component {
 
-    constructor(props) {
-        super(props)
-    }
-
     render() {
 
         return (
