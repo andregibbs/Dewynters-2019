@@ -36,26 +36,36 @@ const LogoContainer = styled.div`
 
 const ModalButton = styled.button`
     background-color: transparent;
-    position: absolute;
-    left: 50%;
-    top: 70%;
-    transform: translateX(-50%);
     color: ${props => props.theme.colors.white};
     font-family: ${props => props.theme.font.family.bold};
     font-size: ${props => props.theme.font.size.lg};
     border: 0;
     opacity: 0;
+    margin-top: 2rem;
+
+    @media ${media.md} {
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0;
+        top: 70%;
+        position: absolute;
+    }
 `
 
 const ContactLink = styled(Link)`
     background-color: transparent;
-    position: absolute;
-    left: 50%;
-    top: 70%;
-    transform: translateX(-50%);
     color: ${props => props.theme.colors.white};
     font-family: ${props => props.theme.font.family.bold};
     font-size: ${props => props.theme.font.h3.size};
+    margin-top: 2rem;
+
+    @media ${media.md} {
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0;
+        top: 70%;
+        position: absolute;
+    }
 `
 
 const ModalBodyStyled = styled(ModalBody)`
@@ -203,6 +213,10 @@ class LandingBlock extends Component {
         const siteWrap = document.getElementById('site-content-wrap')
         siteWrap.classList.toggle('blur')
         siteWrap.classList.toggle('blur--large')
+
+        if (!this.state.text) {
+            this.updateText()
+        }
     }
 
     updateText() {
@@ -240,10 +254,7 @@ class LandingBlock extends Component {
                         <ModalCopy>
                             From those we share together at theatres, exhibitions, music, sport and live events to those we enjoy online wherever we are - every <span style={{ color: "white" }}>experience</span> matters. We deliver brands that engage, excite and entertain, designed by a global network of experts with an unrivalled passion, unlimited creativity and simply unparalleled <span style={{ color: "white" }}>experience</span>.
                         </ModalCopy>
-                        <ModalClose aria-label="Close modal" onClick={() => {
-                            this.toggleModal()
-                            this.updateText()
-                        }}/>
+                        <ModalClose aria-label="Close modal" onClick={this.toggleModal} />
                     </ModalBodyStyled>
                 </Modal>
             </LandingContainer>
