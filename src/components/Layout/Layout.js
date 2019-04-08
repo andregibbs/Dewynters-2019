@@ -69,9 +69,9 @@ class Layout extends Component {
                         <main>{this.props.children}</main>
                         <Footer />
                     </SiteContentWrap>
-                    {this.state.cursor &&
+                    {/* {this.state.cursor &&
                         <CustomCursor />
-                    }
+                    } */}
                 </>
             </ThemeProvider>
         )

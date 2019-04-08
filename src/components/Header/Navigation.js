@@ -11,14 +11,14 @@ const NavToggle = styled.button`
     top: 1rem;
     background-color: transparent;
     border: 0;
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     padding: 0;
     transition: ${props => props.theme.transitionBase};
     background-color: ${props => props.theme.colors.blackOff};
 
     span {
-        width: 100%;
+        width: 90%;
         height: 2px;
         background-color: white;
         display: block;

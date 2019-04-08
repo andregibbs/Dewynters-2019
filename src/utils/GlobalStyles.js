@@ -34,16 +34,16 @@ const GlobalStyles = createGlobalStyle`
         background-color: ${props => props.theme.colors.black};;
         overflow-x: hidden;
         font-display: swap;
-        cursor: none;
+        /* cursor: none; */
 
         &.modal-active {
             overflow: hidden;
         }
     }
 
-    a, button {
+    /* a, button {
         cursor: none !important;
-    }
+    } */
 
     img {
         max-width: 100%;
