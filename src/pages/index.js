@@ -13,8 +13,6 @@ class IndexPage extends Component {
                 <Layout>
                     <SEO title="Home" />
                     <LandingBlock />
-
-  
                 </Layout>
             </>
 		)

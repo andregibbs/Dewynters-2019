@@ -11,6 +11,7 @@ const GlobalStyles = createGlobalStyle`
             url(${fontFiles.ProximaNovaRegularWOFF2}) format("woff2"), 
             url(${fontFiles.ProximaNovaRegularWOFF}) format("woff"), 
             url(${fontFiles.ProximaNovaRegularTTF}) format("truetype");
+        font-display: swap;
     }
     @font-face{
         font-family: "Proxima Nova Bold";
@@ -20,6 +21,7 @@ const GlobalStyles = createGlobalStyle`
             url(${fontFiles.ProximaNovaBoldWOFF2}) format("woff2"), 
             url(${fontFiles.ProximaNovaBoldWOFF}) format("woff"), 
             url(${fontFiles.ProximaNovaBoldTTF}) format("truetype");
+        font-display: swap;
     }
 
     body {
@@ -31,10 +33,16 @@ const GlobalStyles = createGlobalStyle`
         -webkit-font-smoothing: antialiased;
         background-color: ${props => props.theme.colors.black};;
         overflow-x: hidden;
+        font-display: swap;
+        cursor: none;
 
         &.modal-active {
             overflow: hidden;
         }
+    }
+
+    a, button {
+        cursor: none !important;
     }
 
     img {

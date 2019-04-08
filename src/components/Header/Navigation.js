@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
+import { media } from "utils/Media"
 
 const NavToggle = styled.button`
     position: fixed;
@@ -10,10 +11,11 @@ const NavToggle = styled.button`
     top: 1rem;
     background-color: transparent;
     border: 0;
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
     padding: 0;
-    cursor: pointer;
+    transition: ${props => props.theme.transitionBase};
+    background-color: ${props => props.theme.colors.blackOff};
 
     span {
         width: 100%;
@@ -32,10 +34,27 @@ const NavToggle = styled.button`
             position: absolute;
             top: -7px;
             left: 0;
+            transition: ${props => props.theme.transitionBase};
+            transform: translateY(0) rotate(0);
         }
 
         &:after {
             top: 7px;
+        }
+    }
+
+    &.active {
+        span {
+            background-color: transparent;
+
+            &:after {
+                top: 50%;
+                transform: translateY(-50%) rotate(45deg);
+            }
+            &:before {
+                top: 50%;
+                transform: translateY(-50%) rotate(-45deg);
+            }
         }
     }
 `
@@ -62,8 +81,12 @@ const Nav = styled.nav`
         li {
             a {
                 font-family: ${props => props.theme.font.family.bold};
-                font-size: 75px;
+                font-size: 55px;
                 transition: ${props => props.theme.transitionBase};
+
+                @media ${media.md} {
+                    font-size: 75px;
+                }
 
                 &:hover, 
                 &.active {
@@ -102,7 +125,7 @@ class Navigation extends Component {
     render() {
         return (
             <>
-                <NavToggle aria-label="Toggle navigation" onClick={this.toggleNav}>
+                <NavToggle id="nav-toggle" aria-label="Toggle navigation" onClick={this.toggleNav} className={`${this.state.navOpen ? 'active' : ''}`}>
                     <span></span>
                 </NavToggle>
                 <Nav className={`${this.state.navOpen ? 'active' : ''}`}>

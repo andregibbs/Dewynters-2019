@@ -119,8 +119,8 @@ class ContactPage extends Component {
                                 <p>Wellington House, 125 Strand, London WC2R 0AP</p>
                                 <InlineList>
                                     <li>
-                                        +44 020 7278 1400
-                                </li>
+                                       <a href="tel:+4402072781400">+44 020 7278 1400</a> 
+                                    </li>
                                     <li>
                                         <a href="mailto:info@dewynters.com">info@dewynters.com</a>
                                     </li>
@@ -139,7 +139,7 @@ class ContactPage extends Component {
                                 <p>Lemon-Tree-Building, Holzdamm 14, 20099 Hamburg</p>
                                 <InlineList>
                                     <li>
-                                        +49 40 60869601 
+                                        <a href="tel:+494060869601">+49 40 60869601</a> 
                                     </li>
                                     <li>
                                         <a href="mailto:kontakt@dewynters.de">kontakt@dewynters.de</a>
@@ -162,7 +162,7 @@ class ContactPage extends Component {
                                 <p>Gedempt Hamerkanaal 247, 1021KP Amsterdam</p>
                                 <InlineList>
                                     <li>
-                                        +49 40 60869601 
+                                        <a href="tel:+494060869601">+49 40 60869601</a> 
                                     </li>
                                     <li>
                                         <a href="mailto:info@dewynters.nl">info@dewynters.nl</a>
