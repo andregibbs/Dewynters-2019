@@ -16,7 +16,7 @@ class PrivacyPage extends Component {
                         <p>This website, controlled by Dewynters Limited. Dewynters Limited is the Data Controller, for the purposes of Data Protection Law, when your personal information is processed as a result of your visit to this website.</p>
                         <p>We are committed to providing you with relevant information about, and control over, how we process your personal information.</p>
                         <p>This policy explains what personal information we may record, why we do so, how you may control the use of your information and how we protect your information. Details of your legal rights and how to exercise them are also set out below.</p>
-                        <p>This policy was last updated on 26/03/2019. Any future changes to our policy will be reflected <Link to="/cookie-policy/">here</Link>.</p>
+                        <p>This policy was last updated on 26/03/2019. Any future changes to our policy will be reflected <a href="#cookie-policy">HERE</a>.</p>
 
                         <p><strong>Contacting us</strong></p>
                         <p>Questions, comments and requests regarding this privacy policy are welcomed and should be addressed by email to <a href="mailto:info@dewynters.com">info@dewynters.com</a></p>
@@ -25,7 +25,7 @@ class PrivacyPage extends Component {
                         <p>We process your personal information gathered on this website in order to tailor our marketing to your needs and to improve our website for future customers.  The specific purposes for which we may process information, and the lawful basis on which we do so in each case, are set out below.</p>
 
                         <p><strong>Tailoring this website to your needs</strong></p>
-                        <p>We want to make our website easy to personalise.  We use preference cookies to store your preferences, such as website language selection, so that you do not need to make the same selections every time you visit our website.  These cookies, stored by your browser on your device, will retain your preference choices [for 30 days, until you delete them].  We record your consent to store cookies when you first visit the site and click on the cookie notice, and we provide details of how to change your settings <Link to="/cookie-policy/">HERE</Link></p>
+                        <p>We want to make our website easy to personalise.  We use preference cookies to store your preferences, such as website language selection, so that you do not need to make the same selections every time you visit our website.  These cookies, stored by your browser on your device, will retain your preference choices [for 30 days, until you delete them].  We record your consent to store cookies when you first visit the site and click on the cookie notice, and we provide details of how to change your settings <a href="#cookie-policy">HERE</a></p>
 
                         <p><strong>Improving the effectiveness of our website</strong></p>
                         <p>We want to make sure that our website enables people to learn about the show and to book tickets and that the site meets the needs of our customers and is easy to use. To do this, we need to understand how people use this site, where they spend time and which pages they find less useful.  We use Google Analytics platform to understand how you and other visitors use our website, for example recording in what order pages are visited and how long is spent on each, so that we may improve the website in future. [Google Analytics platform’s privacy policy may be found <a href="https://policies.google.com/privacy?hl=en" target="_blank" rel="noreferrer noopener">here</a>].  We record your consent to store site analytics cookies when you first visit the site and click on the cookie notice. The lawful basis on which we process these analytics cookies is our legitimate interest in improving our website as we believe that the use of such cookies is not intrusive.</p>
@@ -57,7 +57,7 @@ class PrivacyPage extends Component {
                 </Container>
                 <Container fluid={true} className="py-4">
                     <Container>
-                        <h1>Cookie Policy</h1>
+                        <h1 id="cookie-policy">Cookie Policy</h1>
                         <p><strong>Cookies and how they benefit you:</strong></p>
                         <p>Our website uses cookies, as almost all websites do, to help provide you with the best experience we can.
                             Cookies are small text files that are placed on your computer or mobile phone when you browse

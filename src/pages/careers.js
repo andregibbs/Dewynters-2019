@@ -122,7 +122,7 @@ class CareersBlock extends Component {
                             <CareerCopy dangerouslySetInnerHTML={{ __html: node.copyHTML }} />
                             <Row>
                                 <Col xs={6} md="auto">
-                                    <CareerInfoLink href={node.pdf} target="_blank" rel="noopener noreferrer">
+                                    <CareerInfoLink href={node.pdf} target="_blank" rel="noopener noreferrer" download={true}>
                                         <div style={{ width: "50px", maxWidth: "50px" }}><img src={download} alt="" width="50"/></div>
                                         <div>
                                             <span>Download job description</span> <br />
