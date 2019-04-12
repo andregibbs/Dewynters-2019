@@ -22,6 +22,7 @@ const LandingContainer = styled(Container)`
 const LogoContainer = styled.div`
     width: 100%;
     max-width: 1400px;
+    padding: 1rem 0;
    
     @media ${media.md} {
         padding: 0 2rem;
@@ -250,8 +251,8 @@ class LandingBlock extends Component {
         const tiltTimeline = new TimelineMax()
 
         // Detect mouse position
-        var xPos = (e.clientX / window.innerWidth) - 0.5;
-        var yPos = (e.clientY / window.innerHeight) - 0.5;
+        let xPos = (e.clientX / window.innerWidth) - 0.5;
+        let yPos = (e.clientY / window.innerHeight) - 0.5;
 
         // Tilt the hero container
         tiltTimeline.to(this.logoContainer, 0.6, { 
@@ -269,26 +270,17 @@ class LandingBlock extends Component {
 
     orientationTilt(e) {
         const tiltTimeline = new TimelineMax()
-
-        let xPos = Math.round(e.beta);
         let yPos = Math.round(e.gamma);
 
-        if (xPos >= 0) {
-            xPos = xPos < 20 ? Math.round(e.beta) : 20;
-        } else {
-            xPos = xPos > -20 ? Math.round(e.beta) : -20;
-        }
-
         if (yPos >= 0) {
-            yPos = yPos < 10 ? Math.round(e.gamma) : 10;
+            yPos = yPos < 10 ? yPos : 10;
         } else {
-            yPos =  yPos > -10 ? Math.round(e.gamma) : -10;
+            yPos = yPos > - 10 ? yPos : - 10;
         }
 
         // Tilt the hero container
         tiltTimeline.to(this.logoContainer, 0.6, { 
             rotationY: yPos, 
-            rotationX: xPos, 
             ease: Power1.easeOut, 
             transformPerspective: 800, 
             transformOrigin: "center center" 
@@ -334,6 +326,7 @@ class LandingBlock extends Component {
                     <ModalButton onClick={this.toggleModal} ref={discover => this.discover = discover}>
                         Discover more
                     </ModalButton>
+                    <div id="calc"></div>
                 </SubTextWrap>
 
                 <Modal isOpen={this.state.modal} toggle={this.toggleModal} centered={true} onClosed={this.updateText}>

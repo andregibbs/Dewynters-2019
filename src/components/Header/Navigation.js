@@ -12,17 +12,20 @@ const NavToggle = styled.button`
     background-color: transparent;
     border: 0;
     width: 35px;
-    height: 35px;
+    height: 30px;
     padding: 0;
     transition: ${props => props.theme.transitionBase};
-    background-color: ${props => props.theme.colors.blackOff};
+    background-color: ${props => props.theme.colors.black};
 
     span {
-        width: 90%;
+        width: 70%;
         height: 2px;
         background-color: white;
         display: block;
-        position: relative;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
 
         &:after,
         &:before {

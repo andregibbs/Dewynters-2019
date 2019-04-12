@@ -6,7 +6,7 @@ import theme from "utils/Theme"
 import GlobalStyles from "utils/GlobalStyles"
 import Header from "components/Header/Header"
 import Footer from "components/Footer/Footer"
-import CustomCursor from "./CustomCursor"
+// import CustomCursor from "./CustomCursor"
 
 const SiteContentWrap = styled.div`
     transition: filter .4s ease-in-out;
