@@ -122,7 +122,7 @@ const Footer = () => (
                     <Row className="align-items-center">
                         <Col>
                             <CompanyLink href="http://www.dewynters.de" target="_blank" rel="noreferrer noopener" aria-label="Dewynters Germany">
-                                <img src={dewyntersDE} alt="Dewynters Germany" />
+                                <img src={dewyntersDE} alt="Dewynters Germany" width="114" height="24" />
                             </CompanyLink>
                         </Col>
                         <Col>
