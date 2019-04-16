@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { StaticQuery } from "gatsby"
+import { StaticQuery, graphql } from "gatsby"
 import { Container, Row, Col } from "reactstrap"
 import styled from "styled-components"
 import { media } from "utils/Media"
@@ -122,7 +122,7 @@ class CareersBlock extends Component {
                             <CareerCopy dangerouslySetInnerHTML={{ __html: node.copyHTML }} />
                             <Row>
                                 <Col xs={6} md="auto">
-                                    <CareerInfoLink href={node.pdf} target="_blank" rel="noopener noreferrer">
+                                    <CareerInfoLink href={node.pdf} target="_blank" rel="noopener noreferrer" download={true}>
                                         <div style={{ width: "50px", maxWidth: "50px" }}><img src={download} alt="" width="50"/></div>
                                         <div>
                                             <span>Download job description</span> <br />
@@ -151,14 +151,13 @@ class CareersBlock extends Component {
 
         return (
             <Layout>
-                <SEO title="Contact" />
+                <SEO title="Careers" />
                 <ContainerStyled>
                     <Heading><span style={{ color: "white" }}>Careers</span> at Dewynters.</Heading>
 
                     <p className="lg">We’re Dewynters, the <span style={{ color: "white" }}>leading live entertainment marketing agency</span>. Based in central London, we create ground-breaking campaigns that are seen across the world, spanning the fields of <span style={{ color: "white" }}>theatre, music, arena events, opera, sport, film, comedy</span> and <span style={{ color: "white" }}>exhibitions</span>.</p>
 
                     <p>Clients include the Royal Shakespeare Company, Nitto ATP World Tennis Finals, Les Misérables, Mamma Mia!, The Lion King, The Book of Mormon, Taste London Festival, Ubisoft and Marvel Universe Live! We recently embarked on an international new business drive that has generated clients in France, Germany, Sweden, Asia and The Gulf.</p>
-
 
                     {careersContent}
                 </ContainerStyled>

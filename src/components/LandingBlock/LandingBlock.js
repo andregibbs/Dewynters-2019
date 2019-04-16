@@ -22,6 +22,7 @@ const LandingContainer = styled(Container)`
 const LogoContainer = styled.div`
     width: 100%;
     max-width: 1400px;
+    padding: 1rem 0;
    
     @media ${media.md} {
         padding: 0 2rem;
@@ -34,14 +35,14 @@ const LogoContainer = styled.div`
     }
 `
 
-const ModalButton = styled.button`
-    background-color: transparent;
-    color: ${props => props.theme.colors.white};
-    font-family: ${props => props.theme.font.family.bold};
-    font-size: ${props => props.theme.font.size.lg};
-    border: 0;
-    opacity: 0;
-    margin-top: 2rem;
+const SubTextWrap = styled.div`
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    z-index: 1;
+    padding: 0 1rem;
 
     @media ${media.md} {
         left: 50%;
@@ -52,19 +53,38 @@ const ModalButton = styled.button`
     }
 `
 
-const ContactLink = styled(Link)`
+const ModalButton = styled.button`
     background-color: transparent;
     color: ${props => props.theme.colors.white};
     font-family: ${props => props.theme.font.family.bold};
-    font-size: ${props => props.theme.font.h3.size};
+    font-size: ${props => props.theme.font.size.lg};
+    border: 0;
+    opacity: 0;
     margin-top: 2rem;
 
-    @media ${media.md} {
+    &:hover {
+        color: ${props => props.theme.colors.turquoise};
+    }
+
+    /* @media ${media.md} {
         left: 50%;
         transform: translateX(-50%);
         margin: 0;
         top: 70%;
         position: absolute;
+    } */
+`
+
+const ContactLink = styled(Link)`
+    background-color: transparent;
+    color: ${props => props.theme.colors.white};
+    font-family: ${props => props.theme.font.family.bold};
+    font-size: ${props => props.theme.font.h4.size};
+    margin-top: 2rem;
+    width: 100%;
+
+    @media ${media.md} {
+        font-size: ${props => props.theme.font.h3.size};
     }
 `
 
@@ -97,6 +117,8 @@ const ModalHeading = styled.h3`
 const ModalCopy = styled.p`
     font-family: ${props => props.theme.font.family.bold};
     color: ${props => props.theme.colors.grey};
+    font-size: 20px;
+    line-height: 1.25;
 
     @media ${media.sm} {
         font-size: 25px;
@@ -111,15 +133,18 @@ const ModalCopy = styled.p`
 
 const ModalClose = styled.button`
     position: absolute;
-    bottom: -2rem;
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     background-color: transparent;
     border: 0;
     width: 25px;
     height: 25px;
-    cursor: pointer;
     padding: 0;
+
+    @media ${media.sm} {
+        bottom: -2rem;
+    }
 
     &:after,
     &:before {
@@ -137,33 +162,68 @@ const ModalClose = styled.button`
     }
 `
 
+const Spotlight = styled.div`
+    display: none;
+
+    @media ${media.md} {
+        display: block;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-image: radial-gradient(
+            circle,
+            transparent 160px,
+            rgba(0, 0, 0, 0.1) 200px
+        );
+    }
+`
+
 class LandingBlock extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
             modal: false,
-            text: false
+            text: false,
+            logo: ""
         };
         this.masterLogoTimeline = new TimelineMax({ paused: true })
+        this.setLogo = this.setLogo.bind(this)
         this.animation = this.animation.bind(this)
         this.play = this.play.bind(this)
         this.mouseMoveTilt = this.mouseMoveTilt.bind(this)
+        this.orientationTilt = this.orientationTilt.bind(this)
         this.toggleModal = this.toggleModal.bind(this)
         this.updateText = this.updateText.bind(this)
     }
 
     componentDidMount() {
         // create animation
+        this.setLogo()
+        window.addEventListener('resize', this.setLogo)
         this.animation()
         this.play()
-        window.addEventListener('mousemove', this.mouseMoveTilt)
+        
+        if (window.DeviceOrientationEvent && window.innerWidth < 768) {
+            window.addEventListener("deviceorientation", this.orientationTilt)
+        } else {
+            window.addEventListener('mousemove', this.mouseMoveTilt)
+        }
     }
 
     componentWillUnmount() {
         // Kill on unmount
         this.masterLogoTimeline.kill()
         window.removeEventListener('mousemove', this.mouseMoveTilt)
+        window.removeEventListener("deviceorientation", this.orientationTilt)
+        window.removeEventListener('resize', this.setLogo)
+    }
+
+    setLogo() {
+        if (typeof window !== 'undefined') {
+            const logoSVG = window.innerWidth < 768 ? logoMobile : logo
+            this.setState({ logo: logoSVG })
+        }
     }
 
     play() {
@@ -188,17 +248,39 @@ class LandingBlock extends Component {
     }
 
     mouseMoveTilt(e) {
-
         const tiltTimeline = new TimelineMax()
 
         // Detect mouse position
-        var xPos = (e.clientX / window.innerWidth) - 0.5;
-        var yPos = (e.clientY / window.innerHeight) - 0.5;
+        let xPos = (e.clientX / window.innerWidth) - 0.5;
+        let yPos = (e.clientY / window.innerHeight) - 0.5;
 
         // Tilt the hero container
         tiltTimeline.to(this.logoContainer, 0.6, { 
             rotationY: 15 * xPos, 
             rotationX: 15 * yPos, 
+            ease: Power1.easeOut, 
+            transformPerspective: 800, 
+            transformOrigin: "center center",
+        });
+
+        // Spotlight over logo
+        let spotlightSize = 'transparent 160px, rgba(0, 0, 0, 0.1) 200px)';
+        this.spotlight.style.backgroundImage = `radial-gradient(circle at ${e.clientX / window.innerWidth * 100}% ${e.clientY / window.innerHeight * 100}%, ${spotlightSize}`;
+    }
+
+    orientationTilt(e) {
+        const tiltTimeline = new TimelineMax()
+        let yPos = Math.round(e.gamma);
+
+        if (yPos >= 0) {
+            yPos = yPos < 10 ? yPos : 10;
+        } else {
+            yPos = yPos > - 10 ? yPos : - 10;
+        }
+
+        // Tilt the hero container
+        tiltTimeline.to(this.logoContainer, 0.6, { 
+            rotationY: yPos, 
             ease: Power1.easeOut, 
             transformPerspective: 800, 
             transformOrigin: "center center" 
@@ -213,6 +295,9 @@ class LandingBlock extends Component {
         const siteWrap = document.getElementById('site-content-wrap')
         siteWrap.classList.toggle('blur')
         siteWrap.classList.toggle('blur--large')
+
+        const navToggle = document.getElementById('nav-toggle')
+        navToggle.classList.toggle('d-none')
     }
 
     updateText() {
@@ -222,28 +307,29 @@ class LandingBlock extends Component {
     }
 
     render() {
+
         return (
             <LandingContainer fluid>
-                <LogoContainer ref={logoContainer => this.logoContainer = logoContainer} >
-                    <picture>
-                        <source srcSet={logo} media="(min-width: 768px)" />
-                        <img src={logoMobile} alt="Dewynters" ref={logo => this.logo = logo} />
-                    </picture>
+                <LogoContainer ref={logoContainer => this.logoContainer = logoContainer}>
+                    <img src={this.state.logo} alt="Dewynters" ref={logo => this.logo = logo} />
                 </LogoContainer>
 
-                {/* {this.state.text ? (
-                    <ContactLink to="/contact/">
-                        Want to talk? Say hello...
-                    </ContactLink>
-                ) : (
-                  
-                )} */}
+                <Spotlight ref={spotlight => this.spotlight = spotlight} />
 
-                <ModalButton onClick={this.toggleModal} ref={discover => this.discover = discover}>
-                    Discover more
-                </ModalButton>
+                <SubTextWrap>
+                    {this.state.text && 
+                        <ContactLink to="/contact/">
+                            Want to talk? Say hello...
+                        </ContactLink>
+                    }
 
-                <Modal isOpen={this.state.modal} toggle={this.toggleModal} centered={true}>
+                    <ModalButton onClick={this.toggleModal} ref={discover => this.discover = discover}>
+                        Discover more
+                    </ModalButton>
+                    <div id="calc"></div>
+                </SubTextWrap>
+
+                <Modal isOpen={this.state.modal} toggle={this.toggleModal} centered={true} onClosed={this.updateText}>
                     <ModalBodyStyled>
                         <ModalHeading>
                             Life is made of <span style={{ color: "white" }}>experiences</span>.

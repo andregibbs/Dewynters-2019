@@ -118,21 +118,21 @@ const Footer = () => (
                         </Col>
                     </Row>
                 </Col>
-                <Col xs={12} md={{ size: "auto", order: 1 }}>
+                <Col xs={12} md={{ size: 5, order: 1 }}>
                     <Row className="align-items-center">
                         <Col>
-                            <CompanyLink href="http://www.dewynters.de" target="_blank" rel="noreferrer noopener">
+                            <CompanyLink href="http://www.dewynters.de" target="_blank" rel="noreferrer noopener" aria-label="Dewynters Germany">
                                 <img src={dewyntersDE} alt="Dewynters Germany" />
                             </CompanyLink>
                         </Col>
                         <Col>
-                            <CompanyLink href="https://www.dewynters.nl" target="_blank" rel="noreferrer noopener">
-                                <img src={dewyntersNL} alt="Dewynters Netherlands" />
+                            <CompanyLink href="https://www.dewynters.nl" target="_blank"  rel="noopener noreferrer" aria-label="Dewynters Netherlands">
+                                <img src={dewyntersNL} alt="Dewynters Netherlands" width="114" height="24" />
                             </CompanyLink>
                         </Col>
                         <Col>
-                            <CompanyLink href="https://www.spotnyc.com/" target="_blank" rel="noreferrer noopener">
-                                <img src={spotco} alt="Spotco" />
+                            <CompanyLink href="https://www.spotnyc.com/" target="_blank" rel="noopener noreferrer" aria-label="Spotco">
+                                <img src={spotco} alt="Spotco" width="114" height="44" />
                             </CompanyLink>
                         </Col>
                     </Row>
