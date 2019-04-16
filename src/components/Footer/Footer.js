@@ -90,10 +90,10 @@ const Footer = () => (
             <Row className="justify-content-center">
                 <Col xs={12} md={{ size: "auto", order: 3 }}>
                     <LinkWrap>
-                        <LinkItem href="https://twitter.com/dewynterslondon" target="_blank" rel="noreferrer">
+                        <LinkItem href="https://twitter.com/dewynterslondon" target="_blank" rel="noreferrer noopener">
                             <FontAwesomeIcon icon={faTwitter} />
                         </LinkItem>
-                        <LinkItem href="https://www.instagram.com/dewynterslondon/" target="_blank" rel="noreferrer">
+                        <LinkItem href="https://www.instagram.com/dewynterslondon/" target="_blank" rel="noreferrer noopener">
                             <FontAwesomeIcon icon={faInstagram} />
                         </LinkItem>
                     </LinkWrap>
@@ -121,17 +121,17 @@ const Footer = () => (
                 <Col xs={12} md={{ size: "auto", order: 1 }}>
                     <Row className="align-items-center">
                         <Col>
-                            <CompanyLink href="http://www.dewynters.de" rel="noopener noreferrer">
+                            <CompanyLink href="http://www.dewynters.de" target="_blank" rel="noreferrer noopener">
                                 <img src={dewyntersDE} alt="Dewynters Germany" />
                             </CompanyLink>
                         </Col>
                         <Col>
-                            <CompanyLink href="https://www.dewynters.nl" rel="noopener noreferrer">
+                            <CompanyLink href="https://www.dewynters.nl" target="_blank" rel="noreferrer noopener">
                                 <img src={dewyntersNL} alt="Dewynters Netherlands" />
                             </CompanyLink>
                         </Col>
                         <Col>
-                            <CompanyLink href="https://www.spotnyc.com/" rel="noopener noreferrer">
+                            <CompanyLink href="https://www.spotnyc.com/" target="_blank" rel="noreferrer noopener">
                                 <img src={spotco} alt="Spotco" />
                             </CompanyLink>
                         </Col>
