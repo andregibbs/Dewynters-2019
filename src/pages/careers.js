@@ -103,7 +103,7 @@ class CareersBlock extends Component {
                                     </CareerInfoLink>
                                 </Col>
                                 <Col xs={6} md="auto">
-                                    <CareerInfoLink href="mailto:recruitment@dewynters.com" target="_blank" rel="noopener noreferrer">
+                                    <CareerInfoLink href="mailto:recruitment@dewynters.com">
                                         <div style={{ width: "60px", maxWidth: "60px" }}><img src={envelope} alt="" width="60"/></div>
                                         <div>
                                             <span>Apply</span> <br />

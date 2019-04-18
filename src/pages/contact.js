@@ -20,6 +20,7 @@ const MapRow = styled(Row)`
 
     @media ${media.md} {
         padding: 2rem 0;
+        padding-bottom: 3rem;
     }
 `
 
@@ -38,6 +39,10 @@ const MapRowContentBg = styled.div`
 
     @media ${media.lg} {
         padding: 2rem;
+    }
+
+    a {
+        color: ${props => props.theme.colors.grey};
     }
 `
 
@@ -119,7 +124,7 @@ class ContactPage extends Component {
                                 <p>Wellington House, 125 Strand, London WC2R 0AP</p>
                                 <InlineList>
                                     <li>
-                                       <a href="tel:+4402072781400">+44 020 7278 1400</a> 
+                                        <a href="tel:+4402073210488">+44 020 7321 0488</a> 
                                     </li>
                                     <li>
                                         <a href="mailto:info@dewynters.com">info@dewynters.com</a>
@@ -160,10 +165,12 @@ class ContactPage extends Component {
                             <MapRowContentBg>
                                 <h3>Amsterdam Office</h3>
                                 <p>Gedempt Hamerkanaal 247, 1021KP Amsterdam</p>
+
+                                Lisette Heemskerk <a href="tel:+31653732313">+31 (0)6 5373 2313</a><br/>
+                                Jacques Kuyf <a href="tel:+31623981456">+31 (0)6 2398 1456</a><br/>
+                                Ronald Luijendijk <a href="tel:+31620601229">+31 (0)6 2060 1229</a><br /><br />
+
                                 <InlineList>
-                                    <li>
-                                        <a href="tel:+494060869601">+49 40 60869601</a> 
-                                    </li>
                                     <li>
                                         <a href="mailto:info@dewynters.nl">info@dewynters.nl</a>
                                     </li>
@@ -183,7 +190,7 @@ class ContactPage extends Component {
                             <p>Wellington House, 125 Strand, London WC2R 0AP</p>
                             <InlineList>
                                 <li>
-                                    +44 020 7278 1400
+                                    +44 020 7968 1655
                                 </li>
                                 <li>
                                     <a href="mailto:info@r4e.com">info@r4e.com</a>
