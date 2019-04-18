@@ -12,6 +12,8 @@ const SiteContentWrap = styled.div`
     transition: filter .4s ease-in-out;
     &.blur {
         filter: blur(.5rem);
+        backface-visibility: hidden;
+        transform: translate3d(0,0,0);
 
         &:after {
             content: "";

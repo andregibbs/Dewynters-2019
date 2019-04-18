@@ -137,6 +137,9 @@ class Navigation extends Component {
                             <Link to="/" activeClassName="active" onClick={this.toggleNav}>Home</Link>
                         </li>
                         <li>
+                            <Link to="/our-work/" activeClassName="active" onClick={this.toggleNav}>Our work</Link>
+                        </li>
+                        <li>
                             <Link to="/careers/" activeClassName="active" onClick={this.toggleNav}>Careers</Link>
                         </li>
                         <li>

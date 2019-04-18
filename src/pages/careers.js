@@ -1,43 +1,15 @@
 import React, { Component } from "react"
 import { StaticQuery, graphql } from "gatsby"
-import { Container, Row, Col } from "reactstrap"
+import { Row, Col } from "reactstrap"
 import styled from "styled-components"
 import { media } from "utils/Media"
 import Layout from "components/Layout/Layout"
 import Heading from "components/shared/Heading"
+import IntroContainer from "components/shared/IntroContainer"
 import SEO from "utils/Seo"
 
 import envelope from "images/envelope.svg"
 import download from "images/download.svg"
-
-const ContainerStyled = styled(Container)`
-    padding-top: 3rem; 
-    padding-bottom: 3rem; 
-    font-family: ${props => props.theme.font.family.bold};
-    color: ${props => props.theme.colors.grey};
-
-    p {
-        font-size: ${props => props.theme.font.h6.size};
-
-        @media ${media.sm} {
-            font-size: ${props => props.theme.font.h5.size};
-            line-height: 1.25;
-        }
-
-        &.lg {
-            font-size: ${props => props.theme.font.h4.size};
-            line-height: 1.25;
-            
-            @media ${media.sm} {
-                font-size: ${props => props.theme.font.h3.size};
-            }
-
-            @media ${media.md} {
-                font-size: ${props => props.theme.font.h2.size};
-            }
-        }
-    }
-`
 
 const NoVacancies = styled.p`
     font-size: ${props => props.theme.font.h4.size};
@@ -152,7 +124,7 @@ class CareersBlock extends Component {
         return (
             <Layout>
                 <SEO title="Careers" />
-                <ContainerStyled>
+                <IntroContainer>
                     <Heading><span style={{ color: "white" }}>Careers</span> at Dewynters.</Heading>
 
                     <p className="lg">We’re Dewynters, the <span style={{ color: "white" }}>leading live entertainment marketing agency</span>. Based in central London, we create ground-breaking campaigns that are seen across the world, spanning the fields of <span style={{ color: "white" }}>theatre, music, arena events, opera, sport, film, comedy</span> and <span style={{ color: "white" }}>exhibitions</span>.</p>
@@ -160,7 +132,7 @@ class CareersBlock extends Component {
                     <p>Clients include the Royal Shakespeare Company, Nitto ATP World Tennis Finals, Les Misérables, Mamma Mia!, The Lion King, The Book of Mormon, Taste London Festival, Ubisoft and Marvel Universe Live! We recently embarked on an international new business drive that has generated clients in France, Germany, Sweden, Asia and The Gulf.</p>
 
                     {careersContent}
-                </ContainerStyled>
+                </IntroContainer>
             </Layout>
         )
     }

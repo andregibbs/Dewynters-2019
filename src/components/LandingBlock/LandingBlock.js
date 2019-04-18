@@ -53,26 +53,21 @@ const SubTextWrap = styled.div`
     }
 `
 
-const ModalButton = styled.button`
-    background-color: transparent;
-    color: ${props => props.theme.colors.white};
-    font-family: ${props => props.theme.font.family.bold};
-    font-size: ${props => props.theme.font.size.lg};
-    border: 0;
+const SubButtons = styled.div`
     opacity: 0;
     margin-top: 2rem;
 
-    &:hover {
-        color: ${props => props.theme.colors.turquoise};
-    }
+    button, a {
+        background-color: transparent;
+        color: ${props => props.theme.colors.white};
+        font-family: ${props => props.theme.font.family.bold};
+        font-size: ${props => props.theme.font.size.lg};
+        border: 0;
 
-    /* @media ${media.md} {
-        left: 50%;
-        transform: translateX(-50%);
-        margin: 0;
-        top: 70%;
-        position: absolute;
-    } */
+        &:hover {
+            color: ${props => props.theme.colors.turquoise};
+        }
+    }
 `
 
 const ContactLink = styled(Link)`
@@ -322,11 +317,9 @@ class LandingBlock extends Component {
                             Want to talk? Say hello...
                         </ContactLink>
                     }
-
-                    <ModalButton onClick={this.toggleModal} ref={discover => this.discover = discover}>
-                        Discover more
-                    </ModalButton>
-                    <div id="calc"></div>
+                    <SubButtons ref={discover => this.discover = discover}>
+                        <button onClick={this.toggleModal}>Discover more</button>&nbsp;&nbsp;|&nbsp;&nbsp; <Link to="/our-work/">Our work</Link>
+                    </SubButtons>
                 </SubTextWrap>
 
                 <Modal isOpen={this.state.modal} toggle={this.toggleModal} centered={true} onClosed={this.updateText}>
