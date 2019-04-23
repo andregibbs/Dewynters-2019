@@ -45,6 +45,15 @@ const ClientCol = styled(Col)`
 
     &:hover {
         .title {
+            @media ${media.md} {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+        }
+    }
+
+    &.active {
+        .title {
             transform: scale(1.1);
             opacity: 1;
         }
@@ -82,6 +91,25 @@ const OurClientsPage = () => (
 
 class OurClientsBlock extends Component {
 
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            id: false
+        }
+
+        this.showTitle = this.showTitle.bind(this)
+    }
+
+    showTitle(i) {
+
+        const id = i === this.state.id ? false : i
+
+        this.setState({
+            id
+        })
+    }
+
     render() {
 
         let clientsBlocks
@@ -90,7 +118,7 @@ class OurClientsBlock extends Component {
         if (clients.length) {
             clientsBlocks = clients.map(({ node }, i) => {
                 return (
-                    <ClientCol xs="auto" key={i} onHover={this.showTitle}>
+                    <ClientCol xs="auto" key={i} onClick={() => this.showTitle(i)} className={`${this.state.id === i ? 'active' : ''}`}>
                         {node.url !== "" ? (
                             <a href={node.url} target="_blank" rel="noopener noreferrer">
                                 <Img fluid={node.image.childImageSharp.fluid} alt={node.name} />
