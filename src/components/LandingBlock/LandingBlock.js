@@ -33,6 +33,10 @@ const LogoContainer = styled.div`
         transform: scale(10);
         opacity: 0;
     }
+
+    &.transform-none {
+        transform: none !important;
+    }
 `
 
 const SubTextWrap = styled.div`
@@ -291,6 +295,18 @@ class LandingBlock extends Component {
         siteWrap.classList.toggle('blur')
         siteWrap.classList.toggle('blur--large')
 
+        const logoContainer = document.getElementById('logoContainer')
+
+        if (logoContainer !== null) {
+            if (logoContainer.classList.contains('transform-none')) {
+                setTimeout(() => {
+                    logoContainer.classList.remove('transform-none')
+                }, 500);
+            } else {
+                logoContainer.classList.add('transform-none')
+            }
+        }
+
         const navToggle = document.getElementById('nav-toggle')
         navToggle.classList.toggle('d-none')
     }
@@ -305,7 +321,7 @@ class LandingBlock extends Component {
 
         return (
             <LandingContainer fluid>
-                <LogoContainer ref={logoContainer => this.logoContainer = logoContainer}>
+                <LogoContainer ref={logoContainer => this.logoContainer = logoContainer} id="logoContainer">
                     <img src={this.state.logo} alt="Dewynters" ref={logo => this.logo = logo} />
                 </LogoContainer>
 

@@ -119,6 +119,18 @@ class Navigation extends Component {
     }
 
     toggleNav() {
+        const logoContainer = document.getElementById('logoContainer')
+
+        if (logoContainer !== null) {
+            if (logoContainer.classList.contains('transform-none')) {
+                setTimeout(() => {
+                    logoContainer.classList.remove('transform-none')
+                }, 500);
+            } else {
+                logoContainer.classList.add('transform-none')
+            }
+        }
+
         document.getElementById('site-content-wrap').classList.toggle('blur')
         document.body.classList.toggle('modal-active')
 
