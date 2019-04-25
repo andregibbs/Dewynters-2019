@@ -135,7 +135,7 @@ class OurClientsBlock extends Component {
 
         return (
             <Layout>
-                <SEO title="Careers" />
+                <SEO title="Our Work" />
                 <IntroContainer>
                     <Heading>Our <span style={{ color: "white" }}>work</span></Heading>
 
