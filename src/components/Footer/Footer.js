@@ -138,6 +138,11 @@ const Footer = () => (
                     </Row>
                 </Col>
             </Row>
+            <Row className="justify-content-center text-center mt-3">
+                <Col xs={12}>
+                    Dewynters is a member of the reach4entertainment enterprises plc group of companies.<br/>Click <a href="https://www.r4e.com/pdfs/announcements/r4e-plc-Anti-Slavery-Statement[2].pdf" target="_blank" rel="noopener noreferrer" download="true">here</a> to see the groups’ Anti-Slavery Statement.
+                </Col>
+            </Row>
         </Container>
     </FooterContainer>
 )
