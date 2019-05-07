@@ -115,6 +115,11 @@
         "url": ""
     },
     {
+        "name": "Hairspray",
+        "image": "../images/clients/hairspray.png",
+        "url": ""
+    },
+    {
         "name": "Hampton Court Palace Festival",
         "image": "../images/clients/hampton-court-palace.png",
         "url": ""
@@ -172,6 +177,11 @@
     {
         "name": "Natural History Museum Ice Rink",
         "image": "../images/clients/natural-history.png",
+        "url": ""
+    },
+    {
+        "name": "Prince of Egypt",
+        "image": "../images/clients/prince_of_egypt.png",
         "url": ""
     },
     {

@@ -225,10 +225,10 @@ class ContactPage extends Component {
                             <img src={spotco} alt="Spotco" />
                         </Col>
                         <Col>
-                            <p>119 W 40th St, Floor 18, New York 10036</p>
+                            <p>119 W 40th St, Floor 18, New York 10018</p>
                             <InlineList>
                                 <li>
-                                    +1 212 262 10018 
+                                    +1 212-262-3355 
                                 </li>
                                 <li>
                                     <a href="mailto:spot@spotnyc.com">spot@spotnyc.com</a>
