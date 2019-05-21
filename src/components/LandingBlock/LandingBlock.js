@@ -17,6 +17,40 @@ const LandingContainer = styled(Container)`
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+
+    #videobg {
+        display: block;
+        position: absolute;
+        z-index: -100;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -99;
+            background-size: cover;
+        }
+
+        &:after {
+            content: "";
+            background-color: rgba(0, 0, 0, .4);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -98;
+        }
+    }
 `
 
 const LogoContainer = styled.div`
@@ -161,21 +195,21 @@ const ModalClose = styled.button`
     }
 `
 
-const Spotlight = styled.div`
-    display: none;
+// const Spotlight = styled.div`
+//     display: none;
 
-    @media ${media.md} {
-        display: block;
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        background-image: radial-gradient(
-            circle,
-            transparent 160px,
-            rgba(0, 0, 0, 0.1) 200px
-        );
-    }
-`
+//     @media ${media.md} {
+//         display: block;
+//         position: absolute;
+//         height: 100%;
+//         width: 100%;
+//         background-image: radial-gradient(
+//             circle,
+//             transparent 160px,
+//             rgba(0, 0, 0, 0.1) 200px
+//         );
+//     }
+// `
 
 class LandingBlock extends Component {
 
@@ -263,8 +297,8 @@ class LandingBlock extends Component {
         });
 
         // Spotlight over logo
-        let spotlightSize = 'transparent 160px, rgba(0, 0, 0, 0.1) 200px)';
-        this.spotlight.style.backgroundImage = `radial-gradient(circle at ${e.clientX / window.innerWidth * 100}% ${e.clientY / window.innerHeight * 100}%, ${spotlightSize}`;
+        // let spotlightSize = 'transparent 160px, rgba(0, 0, 0, 0.1) 200px)';
+        // this.spotlight.style.backgroundImage = `radial-gradient(circle at ${e.clientX / window.innerWidth * 100}% ${e.clientY / window.innerHeight * 100}%, ${spotlightSize}`;
     }
 
     orientationTilt(e) {
@@ -321,11 +355,18 @@ class LandingBlock extends Component {
 
         return (
             <LandingContainer fluid>
+
+                <div id="videobg">
+                    <video playsInline autoPlay muted loop>
+                        <source src="https://player.vimeo.com/external/336316956.hd.mp4?s=ad8357152928d342410e3c073ed2a2f7c821adc0&profile_id=174" type="video/mp4" />
+                    </video>
+                </div>
+
                 <LogoContainer ref={logoContainer => this.logoContainer = logoContainer} id="logoContainer">
                     <img src={this.state.logo} alt="Dewynters" ref={logo => this.logo = logo} />
                 </LogoContainer>
 
-                <Spotlight ref={spotlight => this.spotlight = spotlight} />
+                {/* <Spotlight ref={spotlight => this.spotlight = spotlight} /> */}
 
                 <SubTextWrap>
                     {this.state.text && 
