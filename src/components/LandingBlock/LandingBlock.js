@@ -42,7 +42,7 @@ const LandingContainer = styled(Container)`
 
         &:after {
             content: "";
-            background-color: rgba(0, 0, 0, .4);
+            background-color: rgba(0, 0, 0, .45);
             position: absolute;
             top: 0;
             left: 0;
