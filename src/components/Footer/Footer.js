@@ -13,10 +13,13 @@ import dewyntersDE from "images/dewynters-de.svg"
 import dewyntersNL from "images/dewynters-nl.svg"
 import spotco from "images/spotco.svg"
 
+import newmans from "images/newmans-black.svg"
+import wtb from "images/wakethebear.svg"
+
 const FooterContainer = styled.footer`
     color: ${props => props.theme.colors.grey};
     font-size: ${props => props.theme.font.size.sm};
-    padding: 1rem 0;
+    padding: 1.5rem 0;
     letter-spacing: 0.2em;
     max-width: 1366px;
     margin: 0 auto;
@@ -121,18 +124,30 @@ const Footer = () => (
                 <Col xs={12} md={{ size: 5, order: 1 }}>
                     <Row className="align-items-center">
                         <Col>
-                            <CompanyLink href="http://www.dewynters.de" target="_blank" rel="noreferrer noopener" aria-label="Dewynters Germany">
-                                <img src={dewyntersDE} alt="Dewynters Germany" width="114" height="24" />
+                            <CompanyLink href="https://newman-displays.com/" target="_blank" rel="noreferrer noopener" aria-label="Newmans">
+                                <img src={newmans} alt="Newmans" width="90" height="61" />
                             </CompanyLink>
                         </Col>
                         <Col>
-                            <CompanyLink href="https://www.dewynters.nl" target="_blank"  rel="noopener noreferrer" aria-label="Dewynters Netherlands">
-                                <img src={dewyntersNL} alt="Dewynters Netherlands" width="114" height="24" />
+                            <CompanyLink href="https://wtb.london/" target="_blank"  rel="noopener noreferrer" aria-label="Wake the Bear">
+                                <img src={wtb} alt="Wake the Bear" width="60" height="60" />
                             </CompanyLink>
                         </Col>
                         <Col>
                             <CompanyLink href="https://www.spotnyc.com/" target="_blank" rel="noopener noreferrer" aria-label="Spotco">
                                 <img src={spotco} alt="Spotco" width="114" height="44" />
+                            </CompanyLink>
+                        </Col>
+                    </Row>
+                    <Row className="align-items-center mt-2">
+                        <Col sm={{ size: '4', offset: 2 }}>
+                            <CompanyLink href="https://www.dewynters.de" target="_blank" rel="noreferrer noopener" aria-label="Dewynters Germany">
+                                <img src={dewyntersDE} alt="Dewynters Germany" width="114" height="24" />
+                            </CompanyLink>
+                        </Col>
+                        <Col sm={4}>
+                            <CompanyLink href="https://www.dewynters.nl" target="_blank"  rel="noopener noreferrer" aria-label="Dewynters Netherlands">
+                                <img src={dewyntersNL} alt="Dewynters Netherlands" width="114" height="24" className="align-self-center"/>
                             </CompanyLink>
                         </Col>
                     </Row>
