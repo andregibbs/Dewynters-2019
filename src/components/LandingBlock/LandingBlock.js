@@ -218,7 +218,8 @@ class LandingBlock extends Component {
         this.state = {
             modal: false,
             text: false,
-            logo: ""
+            logo: "",
+            playing: false
         };
         this.masterLogoTimeline = new TimelineMax({ paused: true })
         this.setLogo = this.setLogo.bind(this)
@@ -228,6 +229,7 @@ class LandingBlock extends Component {
         this.orientationTilt = this.orientationTilt.bind(this)
         this.toggleModal = this.toggleModal.bind(this)
         this.updateText = this.updateText.bind(this)
+        this.checkVideo = this.checkVideo.bind(this)
     }
 
     componentDidMount() {
@@ -236,6 +238,7 @@ class LandingBlock extends Component {
         window.addEventListener('resize', this.setLogo)
         this.animation()
         this.play()
+        this.checkVideo()
         
         if (window.DeviceOrientationEvent && window.innerWidth < 768) {
             window.addEventListener("deviceorientation", this.orientationTilt)
@@ -250,6 +253,19 @@ class LandingBlock extends Component {
         window.removeEventListener('mousemove', this.mouseMoveTilt)
         window.removeEventListener("deviceorientation", this.orientationTilt)
         window.removeEventListener('resize', this.setLogo)
+    }
+
+    checkVideo() {
+        this.video.play();
+        setTimeout(() => {
+            if (this.video.paused) {
+                // this.video.play()
+                this.setState({ playing: false })
+            } else {
+                // this.video.pause()
+                this.setState({ playing: true })
+            }
+        }, 1000);
     }
 
     setLogo() {
@@ -357,7 +373,7 @@ class LandingBlock extends Component {
             <LandingContainer fluid>
 
                 <div id="videobg">
-                    <video playsInline autoPlay muted loop>
+                    <video playsInline muted loop ref={video => this.video = video} style={{ opacity: this.state.playing ? "1" : "0", transition: "all .5s ease" }}>
                         <source src="https://player.vimeo.com/external/336316956.hd.mp4?s=ad8357152928d342410e3c073ed2a2f7c821adc0&profile_id=174" type="video/mp4" />
                     </video>
                 </div>
