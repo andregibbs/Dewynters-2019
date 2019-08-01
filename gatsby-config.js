@@ -98,7 +98,14 @@ module.exports = {
                 // cookieDomain: "example.com",
             },
         },
+		{
+			resolve: `gatsby-plugin-google-tagmanager`,
+			options: {
+							id: "GTM-NC55TTV",
 
+							includeInDevelopment: false,
+			},
+		},
 		// {
 		// 	resolve: `gatsby-plugin-google-tagmanager`,
 		// 	options: {
