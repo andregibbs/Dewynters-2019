@@ -95,6 +95,11 @@
         "url": ""
     },
     {
+        "name": "English National Ballet",
+        "image": "../images/clients/enb.png",
+        "url": ""
+    },
+    {
         "name": "ESME",
         "image": "../images/clients/esme.png",
         "url": ""
@@ -182,11 +187,6 @@
     {
         "name": "Natural History Museum Ice Rink",
         "image": "../images/clients/natural-history.png",
-        "url": ""
-    },
-    {
-        "name": "Prince of Egypt",
-        "image": "../images/clients/prince_of_egypt.png",
         "url": ""
     },
     {
